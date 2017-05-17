@@ -22,11 +22,12 @@ export function next(state) {
               .remove('entries')
               .set('winner', entries.first());
 } else {
-  return state.merge({
-    vote: Map({pair: entries.take(2)}),
-    entries: entries.skip(2)
+    return state.merge({
+      vote: Map({pair: entries.take(2)}),
+      entries: entries.skip(2)
+    });
   }
-});
+} 
 
 export function vote(voteState, entry) {
   return voteState.updateIn(
